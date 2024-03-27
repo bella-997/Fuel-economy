@@ -1,0 +1,27 @@
+## WRANGLING OF THE FUEL ECONOMY DATASET
+
+This is the wrangling stage of the fuel economy datasets from 2008 and 2018. From the dataset, there are 2404 observations and 18 variables in 2008, and 1611 observations and 18 variables in 2018. Exploring the data, I came across some errors that needed to be cleaned before any analysis could take place with the data. These problems include:
+- Missing values in 2008, and in 2018
+- 25 duplicated observations in 2008 
+- Space in column titles
+- Irrelevant columns
+- Inconsistent values of Cyl(2008)
+- Erroneous datatypes for cyl(int) in 2008, Air pollution score(int) in 2008, [city_, hwy_, cmb_mpgs, GHG(int)] in both 2008 and 2018
+- 2008 smartway column values do not correspond to that of 2018
+- columns that contain hybrid values separated with slash(/)
+
+others
+- Create new columns for year and make
+
+CLEANING PROCESS
+The cleaning process started with copying the datasets into new variable names before anything else as a backup. Then I dropped the irrelevant columns in both datasets. I renamed the column names, getting rid of the spaces and upper case, thereby making sure the column names in both datasets match. Then I got rid of the duplicate values. For the missing values in some columns, I got rid of those in 2008 because there were a lot of them which I replace them with any of the mesures of central tendency, the data might be biased so i dropped them. But in 2018, there are only 2 missing values, one in displ and the other in cyl, so i'll fill them up with the mean values. 
+
+For 2008 cyl column, I extracted the numerical values in the column and converted it to int, then also converted the 2018 cyl column to int.
+
+Fixing hybrid values in fuel, air_pollution_score, the mpgs and greenhouse_gas_score: Some values in the column have two values seperated by a backward slash(/). I just replaced them with their mean and converted them to int, and also for the remaining columns that have erroneous datatypes.
+
+The model dataset has a lot of values and might be a headache to analyze, so i extracted the make of the cars.
+I created a new column (year) for both datasets then merged the datasets. 
+I converted some columns to lowercases because they values from one dataset(2008) is the same with that of 2018, only that the cases are different.
+For the trans columns, I extracted the transition name only 
+Finally I resaved the cleaned data as csv for Exploratory and explanatory visualizations
